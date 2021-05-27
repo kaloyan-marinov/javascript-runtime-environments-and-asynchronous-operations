@@ -1,0 +1,103 @@
+The _JavaScript Engine_
+
+_C++ Bindings_
+and
+_Thread Pool_
+
+    There is a library called Libuv,
+    which is responsible for managing/handling asynchronous I/O operations.
+
+    These I/O operations are also well known as “heavy duty tasks” that relate to
+        files and folder management,
+        TCP/UDP transactions,
+        compression,
+        encryption,
+        etc.
+
+    Now, while most of these operations are asynchronous by design,
+    there are a few that are synchronous,
+    and if not handled correctly, could cause our applications to be blocked.
+    It is for this reason that
+    Libuv initiates (what is called) a _Thread Pool_ of 4 threads
+    that it uses to offload synchronous operations to.
+
+    (
+    In fact,
+    there is a setting that we can take advantage of
+    to better suit the specs of the (physical or virtual) machine
+    that our app will be deployed to.
+    Namely, we are allowed to change the default value of 4 threads
+    to anything up to 1024 threads.
+    We achieve this by setting the `UV_THREADPOOL_SIZE` Node variable.
+
+    When it comes to deployment,
+    the last thing you want to do is manually set the UV_THREADPOOL_SIZE,
+    as your app might run on multiple environments with different machine specifications.
+
+    As such, we need a way to dynamically set the thread pool size
+    the moment the app is launched on the relevant environment.
+    To achieve this, add the below code to the top of your root JS file of your Node application:
+    ```
+    const OS = require('os')
+    process.env.UV_THREADPOOL_SIZE = OS.cpus().length
+    ```
+    The OS module is native to Node JS.
+    It has a function cpus(),
+    which returns the total amount of logical cores your machine is running.
+    What’s nice is, should your CPU cores not have hyperthreading,
+    this function will just return the number of physical cpu cores instead,
+    which is perfect.
+    )
+
+    ---
+
+    One of the biggest misconceptions when it comes to Node is that
+    every asynchronous operation is handled by Libuv’s thread pool.
+
+    It is not true that all the heavy operations are executed by the worker threads.
+    In fact, Libuv uses worker threads only if there is no other way to do things.
+
+    A little background on asynchronous operations in Node.js
+
+        By definition,
+        an asynchronous operation is the one which does not block the thread execution.
+        In other words, if we invoke an asynchronous function,
+        it will execute in the background
+        and control will be returned to the main thread immediately
+        (i.e. the next line will be executed
+        before the asynchronous function's result is received).
+
+    With respect to application code in Node,
+    methods which do not have the “Sync” suffix are considered asynchronous.
+    They will not block the main thread execution.
+    But not all of them 
+        have native async support on the operating system level
+        = use native async mechanisms
+        = have native async support
+        = are backed by kernel async operations;
+    instead, such methods are executed synchronously on the thread pool,
+    which means that their nature is not truly asynchronous.
+    Let’s see two examples.
+
+    ...
+
+    We used two examples to show two different ways
+    how heavy operations are handled in Node.
+    
+    Whenever possible, Libuv will use native async mechanisms, which makes Node very
+    scalable since the only limitation is the operating system kernel.
+
+    If there is no other way (e.g. CPU-bounded operations and all file I/O),
+    Libuv will use the thread pool.
+    Although the thread pool preserves asynchronicity with respect to Node’s main thread,
+    it can still become a bottleneck if all threads are busy.
+    This brings scalability problems when applications are mostly CPU-bound.
+    
+    Programmers can learn one useful lesson from all this analysis:
+    If there are performance issues on our application,
+    we can check and see if we can replace functions, which use the thread pool,
+    with functions which use native async mechanisms.
+
+_Queue of Event-Handler Function_
+
+_Event Loop_

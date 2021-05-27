@@ -1,0 +1,195 @@
+The web-browser _JavaScript Runtime Environment_ is made up of the following components:
+
+(a) _JavaScript Engine_ :
+     
+     How can your computer understand what to do with a plaintext script?
+
+     That’s the job of a _JavaScript Engine_.
+     
+     A _JavaScript Engine_ is a program responsible
+     for translating source code into machine code
+     and then for executing the translation on a computer’s central processing unit
+     (CPU).
+
+     Furthermore,
+     the _JavaScript Engine_ is composed of a _Call Stack_ and a _Heap_.
+
+        A _Call Stack_ is where our JavaScript program is actually executed,
+        using _execution contexts_.
+
+        A _Heap_ is an unstructured memory pool,
+        which stores all the objects that our JavaScript program needs.
+
+     Now is a good time to draw a distinction,
+     which may seem bewildering at first
+     but is important for understanding the _JavaScript Runtime Environment_ as a whole.
+
+        There is a distinction between
+        what we are going to call a JavaScript program
+        and what we are going to call a generalized JavaScript program.
+
+        The entirety of a JavaScript program is written in the JavaScript language.
+        In (frontend) web development, however,
+        such programs do not suffice for most practical purposes.
+
+        By contrast, a generalized JavaScript program is made up of two portions:
+        - the 1st portion is written in the JavaScript language,
+        - the 2nd portion, strictly speaking, is not written in the JavaScript language
+          and consequently is not executed in the _JavaScript Engine_.
+
+        At first,
+        the very concept of a generalized JavaScript program may seem so bewildering
+        that one might even think,
+        "If the _JavaScript Engine_ doesn't execute the entirety of a _generalized
+        JavaScript program_, then what does execute it?".
+        That's a perfectly valid question, and its answer is as follows.
+
+        In (frontend) web development,
+        you don’t usually use the _JavaScript Engine_ by itself;
+        instead, you use the surrounding _JavaScript Runtime Environment_,
+        which enables your generalized JavaScript program
+        to utilize/execute additional functionalities.
+
+        (
+        Go on to the next section to learn more
+        about those esoteric/mysterious-sounding "functionalities".
+        )
+
+     In summary,
+     the _JavaScript Engine_ is a container, in which
+     both the entirety of each JavaScript program
+     and the JavaScript portion of each generalized JavaScript program
+     are executed.
+
+(b) _WEB APIs_ :
+
+    (
+    When writing code for the Web, there are a large number of _Web APIs_ available.
+    You may be able to use those while developing your Web app or site.
+
+    Web APIs are typically used with JavaScript,
+    although this doesn't always have to be the case.
+    )
+
+     _WEB APIs_ are functionalities,
+     which the web browser provides to the _JavaScript Engine_
+     through the global `window` object.
+
+     Those functionalities are not part of the JavaScript language itself.
+
+     However, since they are provided to the _JavaScript Engine_,
+     you can use them in your JavaScript program
+     and thus cause them to be executed at runtime.
+
+     In general terms, _Web APIs_ are utilities,
+     which enable your JavaScript program to communicate with
+     the world surrounding the _JavaScript Engine_.
+
+     In concrete terms, here are some examples of _Web APIs_:
+     - access to information about the web browser in which your script is executed
+     - a notification about a mouse click
+     - the DOM API exposed by web browsers
+       makes it possible to manipulate static web pages in a dynamic fashion
+     - the Fetch API exposed by web browsers
+       makes it possible to communicate with an HTTP server [over a/the network]
+
+    (
+    One of the main reasons for inventing JavaScript was
+    to put some dynamics in (initially static) web pages created with HTML and CSS.
+
+        Whenever you visit (i.e. navigate to) a web page in your web browser,
+        the web browser loads that web page.
+        After the web page is loaded,
+        your web browser creates a Document Object Model (DOM) for the web page.
+        The DOM represents (Models) the tree of UI elements (Objects)
+        on a particular web page (Document) in memory.
+
+        [
+        The first section on
+        https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+        is a slightly more detailed but still concise description of the DOM.
+        ]
+
+        The web browser exposes an API for the DOM.
+
+        The DOM API can be used within/by your JavaScript program
+        to freely change the DOM of and add dynamics to
+        any (initially static) web page that you plan to (?)host/deploy(?).
+
+    But there's more.
+
+        A web browser is an interactive interface for web pages.
+        Users can click on elements,
+        scroll down pages,
+        or enter input in form fields using the keyboard.
+        All these actions fire user _Events_,
+        which the browser exposes as a part of the _JavaScript Runtime Environment_.
+
+    Beyond that, the user isn’t the only source of _Events_.
+    Your JavaScript program(s) can create _Events_ as well.
+
+        (example 1)
+        A very special type of _Event_ you create is a _Timer Event_.
+        It enables your JavaScript program
+        to delay the execution of some of its code by a specified amount of time.
+
+        (example 2)
+        Your web browser exposes an API called Fetch.
+        The Fetch API can be used within/by your JavaScript program
+        to communicate with an HTTP server [over a/the network].
+        The **result** of network communication is also an _Event_.
+
+        (example 3)
+        Your web browser gives you basic information about a host operating system,
+        in which it runs, and allows to store data in the local storage.
+    )
+
+(c) _Callback Queue_ :
+
+     We can endow a(n initially) static web page with dynamic functionality.
+     More concretely, we can make a web page react to certain _Events_.
+     That is accomplished by attaching _Event Handler Functions_ to DOM elements,
+     which are within the web page.
+
+     (In the context of a web page, an example of an _Event_ is a mouse click
+     or a return of a network request.)
+
+     When a "dynamized DOM element"'s _Event_ occurs,
+     the _JavaScript Runtime Environment_ adds the attached _Event Handler Function_
+     to a so-called _Queue of Event Handler Functions_ (aka _Event-Handler Queue_).
+
+     _Event Handler Functions_ are also called
+     _Callback Functions_ or simply _Callbacks_.
+     Correspondingly, the _Event-Handler Queue_ is also called
+     the _Callback Queue_.
+     (The reason for this alternative name will become clear in the next section.)
+
+(d) _Event loop_ :
+
+    The _Event loop_ is a constantly running process
+    that has one very simple job:
+
+    - it monitors both the _Call Stack_ and the _Callback Queue_;
+
+    - if the _Call Stack_ is not empty,
+      the _Event Loop_ waits until the _Call Stack_ becomes empty;
+      takes the first function from the _Callback Queue_;
+      and pushes it onto the _Call Stack_ (which effectively executes it).
+
+    By performing this coordinating/orchestrating job,
+    the _Event Loop_ achieves concurrency for the execution of a JavaScript program.
+
+    (
+    Now it is possible to explain
+    why _Event-Handler Functions_ are also called _Callback( Function)s_:
+    
+        suppose an _Event-Handler Function_ is attached to a certain DOM element;
+    
+        when that "dynamized DOM element"'s _Event_ occurs,
+        the _JavaScript Runtime Environment_ adds the attached _Event Handler Function_
+        to the _Event-Handler Queue_
+        without immediately calling/executing the function;
+    
+        it's only once the _Call Stack_ becomes empty that
+        the _Event-Handler Function_ will be executed or, well, **called (back)**.
+    )

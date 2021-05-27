@@ -1,0 +1,15 @@
+A _runtime environment_ (RTE) is a software system
+that primarily implements portions of an _execution model_.
+
+Sometimes, an RTE is also called a _runtime system_ (RTS).
+
+Other times, an RTE is treated as just one of multiple components that make up an RTS
+- in such a context:
+(a) the RTS is defined
+    as a specific part of the application software (IDE) used for programming,
+    namely as a piece of software that provides the programmer a more convenient means
+    for executing programs during their development, testing, and the like,
+    whereas
+(b) the RTE is defined
+    as the very instance of an _execution model_ being applied to the developed program,
+    which is itself then executed in the aforementioned RTS.

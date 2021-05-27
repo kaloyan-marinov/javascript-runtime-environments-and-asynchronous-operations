@@ -1,0 +1,49 @@
+The _JavaScript Engine_ is composed of a _Call Stack_ and a _Heap_.
+
+The _JavaScript Engine_ executes a script from the top and works its way down,
+creating _execution contexts_
+and pushing and popping functions onto and off the _Call Stack_.
+
+---
+
+_Web APIs_ are effectively threads that:
+    - you can't access like threads
+    - you can just make calls to [from your JavaScript program]
+      [even though they are not part of the JavaScript language itself]
+
+it's within those pieces of the web-browser _JavaScript Runtime Environment_
+where concurrency takes place.
+
+---
+
+Suppose _Event-Handler Functions_ are attached to several DOM elements,
+with only one _Event-Handler Function_ for each [of those] DOM elements.
+    
+When a "(thusly) dynamized DOM element"'s _Event_ occurs,
+the _JavaScript Runtime Environment_ adds the attached _Event Handler Function_
+to the _Event-Handler Queue_
+without immediately calling/executing the function.
+
+---
+
+The _Event Loop_ is a constantly running process
+that coordinates the tasks between the _Call Stack_ and the _Event-Handlers Queue_
+and thus achieves concurrency for the execution of a JavaScript program.
+
+---
+
+It’s absolutely correct that
+the JavaScript portion of your JavaScript program is executed in a single thread.
+But, it doesn’t mean that
+the whole _JavaScript Runtime Environment_ works in a single thread.
+The thread pool exists in _JavaScript Runtime Environment_.
+Fortunately, you don’t have to worry about thread management
+because the environment does it for you.
+
+But how?
+
+How does the _JavaScript Runtime Environment_ know when to execute your code?
+If there’s only one thread responsible for the execution of your code,
+there has to be some mechanism which manages the order of execution.
+
+This mechanism is called the _Event Loop_.
