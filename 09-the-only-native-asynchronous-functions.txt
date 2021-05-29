@@ -1,0 +1,2 @@
+`setTimeout` and `setInterval` are
+the only native functions of the JavaScript language to execute code asynchronously.

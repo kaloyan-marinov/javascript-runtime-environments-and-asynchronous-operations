@@ -1,0 +1,7 @@
+An asynchronous operation is the one which does not block the thread execution.
+
+In other words, if we invoke an asynchronous function,
+it will execute in the background
+and control will be returned to the main thread immediately
+(i.e. the next line will be executed
+before the asynchronous function's result is received).

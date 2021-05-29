@@ -71,10 +71,10 @@ _Thread Pool_
     methods which do not have the “Sync” suffix are considered asynchronous.
     They will not block the main thread execution.
     But not all of them 
-        have native async support on the operating system level
-        = use native async mechanisms
-        = have native async support
-        = are backed by kernel async operations;
+        have native asynchronous support on the operating system level
+        = use native asynchronous mechanisms
+        = have native asynchronous support
+        = are backed by kernel asynchronous operations;
     instead, such methods are executed synchronously on the _Thread Pool_,
     which means that their nature is not truly asynchronous.
     Let’s see two examples.
@@ -84,7 +84,7 @@ _Thread Pool_
     We used two examples to show two different ways
     how heavy operations are handled in Node.
     
-    Whenever possible, Libuv will use native async mechanisms,
+    Whenever possible, Libuv will use native asynchronous mechanisms,
     which makes Node very scalable
     since the only limitation is the operating system kernel.
 
@@ -97,7 +97,7 @@ _Thread Pool_
     Programmers can learn one useful lesson from all this analysis:
     If there are performance issues in/with our application,
     we can check and see if we can replace functions that use the _Thread Pool_
-    with functions that use native async mechanisms.
+    with functions that use native asynchronous mechanisms.
 
 _Queue of Event-Handler Function_
 

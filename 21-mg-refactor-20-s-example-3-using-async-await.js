@@ -1,3 +1,12 @@
+/*
+This file defines an asynchronous function,
+and demonstrates that
+it is possible to call such a function
+_without any extra code for managing its corresponding asynchronous operation_
+(i.e. without `.then()`/`.catch()` tacked on to function's return value,
+and without `await` in front of the function call).
+*/
+
 const delayedLog = (message, milliseconds) => {
   const p = new Promise((resolve, reject) => {
     if (milliseconds < 0) {

@@ -1,13 +1,4 @@
-source:
-"JavaScript Promises - Mastering the asynchronous"
-
-    In JavaScript, asynchronous execution comes in multiple forms.
-
-    `setTimeout` and `setInterval` are
-    the only native functions of the JavaScript language to execute code asynchronously.
-
-source:
-the (Callback vs Promise vs Async-Await) article by GoFrendi Gunawan
+In JavaScript, asynchronous execution comes in multiple forms.
 
     Asynchronous execution can be scheduled by means of "the callback syntax".
     On the one hand,
