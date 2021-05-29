@@ -42,6 +42,8 @@ https://developer.mozilla.org/en-US/docs/Web/API
 
 the (Callback vs Promise vs Async-Await) article by GoFrendi Gunawan
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
 the (The Async Await Episode I Promised) tutorial by Fireship
 
 the (JavaScript Promises In 10 Minutes) tutorial by Web Dev Simplified

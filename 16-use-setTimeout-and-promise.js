@@ -22,6 +22,11 @@ setTimeout(() => {
 Promise.resolve().then(() => {
   console.log("3");
 });
+/*
+queueMicrotask(() => {
+  console.log("3");
+});
+*/
 
 // The next instruction gets executed right away,
 console.log("2");
