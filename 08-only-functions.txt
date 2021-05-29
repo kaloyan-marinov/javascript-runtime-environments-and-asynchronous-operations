@@ -11,7 +11,7 @@ the (Callback vs Promise vs Async-Await) article by GoFrendi Gunawan
 
     Asynchronous execution can be scheduled by means of "the callback syntax".
     On the one hand,
-    when used directly, that syntax is a hard to read;
+    when used directly, that syntax is hard to read;
     On the other hand,
     at a fundamental level
     that syntax is really the only way to schedule asynchronous execution

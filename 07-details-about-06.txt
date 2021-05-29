@@ -52,7 +52,7 @@ _Thread Pool_
     ---
 
     One of the biggest misconceptions when it comes to Node is that
-    every asynchronous operation is handled by Libuv’s thread pool.
+    every asynchronous operation is handled by Libuv’s _Thread Pool_.
 
     It is not true that all the heavy operations are executed by the worker threads.
     In fact, Libuv uses worker threads only if there is no other way to do things.
@@ -75,7 +75,7 @@ _Thread Pool_
         = use native async mechanisms
         = have native async support
         = are backed by kernel async operations;
-    instead, such methods are executed synchronously on the thread pool,
+    instead, such methods are executed synchronously on the _Thread Pool_,
     which means that their nature is not truly asynchronous.
     Let’s see two examples.
 
@@ -84,19 +84,20 @@ _Thread Pool_
     We used two examples to show two different ways
     how heavy operations are handled in Node.
     
-    Whenever possible, Libuv will use native async mechanisms, which makes Node very
-    scalable since the only limitation is the operating system kernel.
+    Whenever possible, Libuv will use native async mechanisms,
+    which makes Node very scalable
+    since the only limitation is the operating system kernel.
 
     If there is no other way (e.g. CPU-bounded operations and all file I/O),
-    Libuv will use the thread pool.
-    Although the thread pool preserves asynchronicity with respect to Node’s main thread,
+    Libuv will use the _Thread Pool_.
+    Although the _Thread Pool_ preserves asynchronicity with respect to Node’s main thread,
     it can still become a bottleneck if all threads are busy.
     This brings scalability problems when applications are mostly CPU-bound.
     
     Programmers can learn one useful lesson from all this analysis:
-    If there are performance issues on our application,
-    we can check and see if we can replace functions, which use the thread pool,
-    with functions which use native async mechanisms.
+    If there are performance issues in/with our application,
+    we can check and see if we can replace functions that use the _Thread Pool_
+    with functions that use native async mechanisms.
 
 _Queue of Event-Handler Function_
 

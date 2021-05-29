@@ -25,20 +25,20 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
      but is important for understanding the _JavaScript Runtime Environment_ as a whole.
 
         There is a distinction between
-        what we are going to call a JavaScript program
-        and what we are going to call a generalized JavaScript program.
+        what we are going to call a _JavaScript program_
+        and what we are going to call a _generalized JavaScript program_.
 
-        The entirety of a JavaScript program is written in the JavaScript language.
+        The entirety of a _JavaScript program_ is written in the JavaScript language.
         In (frontend) web development, however,
         such programs do not suffice for most practical purposes.
 
-        By contrast, a generalized JavaScript program is made up of two portions:
+        By contrast, a _generalized JavaScript program_ is made up of two portions:
         - the 1st portion is written in the JavaScript language,
         - the 2nd portion, strictly speaking, is not written in the JavaScript language
           and consequently is not executed in the _JavaScript Engine_.
 
         At first,
-        the very concept of a generalized JavaScript program may seem so bewildering
+        the very concept of a _generalized JavaScript program_ may seem so bewildering
         that one might even think,
         "If the _JavaScript Engine_ doesn't execute the entirety of a _generalized
         JavaScript program_, then what does execute it?".
@@ -47,7 +47,7 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
         In (frontend) web development,
         you don’t usually use the _JavaScript Engine_ by itself;
         instead, you use the surrounding _JavaScript Runtime Environment_,
-        which enables your generalized JavaScript program
+        which enables your _generalized JavaScript program_
         to utilize/execute additional functionalities.
 
         (
@@ -58,14 +58,14 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
      In summary,
      the _JavaScript Engine_ is a container, in which
      both the entirety of each JavaScript program
-     and the JavaScript portion of each generalized JavaScript program
+     and the JavaScript portion of each _generalized JavaScript program_
      are executed.
 
 (b) _WEB APIs_ :
 
     (
     When writing code for the Web, there are a large number of _Web APIs_ available.
-    You may be able to use those while developing your Web app or site.
+    You may be able to use those while developing your web application or site.
 
     Web APIs are typically used with JavaScript,
     although this doesn't always have to be the case.
@@ -78,11 +78,11 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
      Those functionalities are not part of the JavaScript language itself.
 
      However, since they are provided to the _JavaScript Engine_,
-     you can use them in your JavaScript program
+     you can use them in your _generalized JavaScript program_
      and thus cause them to be executed at runtime.
 
      In general terms, _Web APIs_ are utilities,
-     which enable your JavaScript program to communicate with
+     which enable your _generalized JavaScript program_ to communicate with
      the world surrounding the _JavaScript Engine_.
 
      In concrete terms, here are some examples of _Web APIs_:
@@ -101,8 +101,9 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
         the web browser loads that web page.
         After the web page is loaded,
         your web browser creates a Document Object Model (DOM) for the web page.
-        The DOM represents (Models) the tree of UI elements (Objects)
-        on a particular web page (Document) in memory.
+        The DOM is an in-memory representation (Model)
+        of the tree of UI elements (Objects)
+        on a particular web page (Document).
 
         [
         The first section on
@@ -112,7 +113,7 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
 
         The web browser exposes an API for the DOM.
 
-        The DOM API can be used within/by your JavaScript program
+        The DOM API can be used within/by your _generalized JavaScript program_
         to freely change the DOM of and add dynamics to
         any (initially static) web page that you plan to (?)host/deploy(?).
 
@@ -121,12 +122,12 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
         A web browser is an interactive interface for web pages.
         Users can click on elements,
         scroll down pages,
-        or enter input in form fields using the keyboard.
+        or enter input into form fields using the keyboard.
         All these actions fire user _Events_,
         which the browser exposes as a part of the _JavaScript Runtime Environment_.
 
     Beyond that, the user isn’t the only source of _Events_.
-    Your JavaScript program(s) can create _Events_ as well.
+    Your _generalized JavaScript program(s)_ can create _Events_ as well.
 
         (example 1)
         A very special type of _Event_ you create is a _Timer Event_.
@@ -177,13 +178,14 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
       and pushes it onto the _Call Stack_ (which effectively executes it).
 
     By performing this coordinating/orchestrating job,
-    the _Event Loop_ achieves concurrency for the execution of a JavaScript program.
+    the _Event Loop_ achieves concurrency
+    for the execution of a _generalized JavaScript program_.
 
     (
     Now it is possible to explain
-    why _Event-Handler Functions_ are also called _Callback( Function)s_:
+    why _Event Handler Functions_ are also called _Callback( Function)s_:
     
-        suppose an _Event-Handler Function_ is attached to a certain DOM element;
+        suppose an _Event Handler Function_ is attached to a certain DOM element;
     
         when that "dynamized DOM element"'s _Event_ occurs,
         the _JavaScript Runtime Environment_ adds the attached _Event Handler Function_
@@ -191,5 +193,5 @@ The web-browser _JavaScript Runtime Environment_ is made up of the following com
         without immediately calling/executing the function;
     
         it's only once the _Call Stack_ becomes empty that
-        the _Event-Handler Function_ will be executed or, well, **called (back)**.
+        the _Event Handler Function_ will be executed or, well, **called (back)**.
     )

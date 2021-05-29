@@ -10,7 +10,7 @@ But that's not what happens.
 // because it's running on the main thread.
 console.log("1");
 
-// The next instruction gets queued for a future task.
+// The next instruction gets added to the _Macrotask Queue_.
 setTimeout(() => {
   console.log("3");
 }, 0);

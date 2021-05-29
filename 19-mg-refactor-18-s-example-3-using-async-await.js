@@ -27,4 +27,8 @@ const test = async () => {
   }
 };
 
+console.log(`${new Date().toISOString()} - STARTING`);
+
 test();
+
+console.log(`${new Date().toISOString()} - ENDING`);

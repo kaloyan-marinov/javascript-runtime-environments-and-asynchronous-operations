@@ -8,7 +8,7 @@ and pushing and popping functions onto and off the _Call Stack_.
 
 _Web APIs_ are effectively threads that:
     - you can't access like threads
-    - you can just make calls to [from your JavaScript program]
+    - you can just make calls to [from your _generalized JavaScript program_]
       [even though they are not part of the JavaScript language itself]
 
 it's within those pieces of the web-browser _JavaScript Runtime Environment_
@@ -16,8 +16,7 @@ where concurrency takes place.
 
 ---
 
-Suppose _Event-Handler Functions_ are attached to several DOM elements,
-with only one _Event-Handler Function_ for each [of those] DOM elements.
+Suppose _Event-Handler Functions_ are attached to several DOM elements.
     
 When a "(thusly) dynamized DOM element"'s _Event_ occurs,
 the _JavaScript Runtime Environment_ adds the attached _Event Handler Function_
@@ -32,13 +31,15 @@ and thus achieves concurrency for the execution of a JavaScript program.
 
 ---
 
-It’s absolutely correct that
-the JavaScript portion of your JavaScript program is executed in a single thread.
-But, it doesn’t mean that
-the whole _JavaScript Runtime Environment_ works in a single thread.
-The thread pool exists in _JavaScript Runtime Environment_.
-Fortunately, you don’t have to worry about thread management
-because the environment does it for you.
+It’s true that
+the JavaScript portion of your _generalized JavaScript program_
+is executed in a single thread.
+But, it isn't true that
+the whole _JavaScript Runtime Environment_ works in a single thread,
+because the _Web APIs_ exist in the _JavaScript Runtime Environment_.
+
+(
+Fortunately, you don’t have to worry about thread management.
 
 But how?
 
@@ -46,4 +47,5 @@ How does the _JavaScript Runtime Environment_ know when to execute your code?
 If there’s only one thread responsible for the execution of your code,
 there has to be some mechanism which manages the order of execution.
 
-This mechanism is called the _Event Loop_.
+This mechanism is the _Event Loop_.
+)

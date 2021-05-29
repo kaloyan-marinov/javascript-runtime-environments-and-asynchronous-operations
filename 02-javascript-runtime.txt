@@ -3,8 +3,8 @@ A _JavaScript Runtime Environment_ is a container,
 which includes all the things
 that are needed to execute any conceivable JavaScript program.
 
-In truth, the term _JavaScript Runtime_ is a widely-used shortening of
-the (technically more precise) term _JavaScript Runtime Environment_.
+In practice, the term _JavaScript Runtime_ is a commonly used shortening of
+the (technically more descriptive) term _JavaScript Runtime Environment_.
 
 Examples of JavaScript Runtime( Environment)s:
 (a) a web browser

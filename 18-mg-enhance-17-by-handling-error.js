@@ -1,5 +1,5 @@
 /*
-This file does not change the definition of the `delayedLog` function,
+This file changes the definition of the `delayedLog` function _in an inessential way_,
 but enhances the manner in which that function is called.
 */
 
@@ -17,6 +17,8 @@ const delayedLog = (message, milliseconds) => {
 
   return p;
 };
+
+console.log(`${new Date().toISOString()} - STARTING`);
 
 // Example 1 - enhance "3" by handling the error
 const returnValue1 = delayedLog("Hello, World!", -5000)
@@ -65,3 +67,5 @@ const returnValue3 = delayedLog("example 3 - first", 1000)
 console.log(
   `${new Date().toISOString()} - example 3 - returnValue3=${returnValue3}`
 );
+
+console.log(`${new Date().toISOString()} - ENDING`);

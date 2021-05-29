@@ -1,6 +1,6 @@
 /*
 Nothing here has any actual time delay
-so, f one is inexperienced with executing _generalized JavaScript programs_
+so, if one is inexperienced with executing _generalized JavaScript programs_
 in a _JavaScript Runtime Environment_,
 one might easily think that
 each line of code would be executed one by one.
@@ -11,13 +11,14 @@ But that's not what happens.
 // because it's running on the main thread.
 console.log("1");
 
-// The next instruction gets queued for a future task.
+// The next instruction gets added to the _Macrotask Queue_.
 setTimeout(() => {
   console.log("4");
 }, 0);
 
 // A `Promise` that resolves right away
-// ... gets queued to run in the microtask queue, immediately after this current task.
+// ... gets added to the _Microtask Queue_,
+// which means that its callback will be executed immediately after this current task.
 Promise.resolve().then(() => {
   console.log("3");
 });
