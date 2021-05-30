@@ -11,10 +11,22 @@ In JavaScript, asynchronous execution comes in multiple forms.
     Fortunately, you don’t have to use callbacks directly.
     The JavaScript language provides a mechanism for encapsulating callbacks,
     and that mechanism is based on the `Promise` object.
-    (
-    Essentially, a `Promise` is a returned object to which you attach callbacks,
-    instead of passing callbacks into a function.
-    )
+
+        (
+        Essentially, a `Promise` is a returned object to which you attach callbacks,
+        instead of passing callbacks into a function.
+        )
+    
+        (
+        A `Promise` can be created from scratch using its constructor.
+        This should be needed only to wrap old APIs.
+
+        In an ideal world, all asynchronous functions would already return `Promise`s.
+
+        Unfortunately, some APIs still expect success and/or failure callbacks to be
+        passed in the old way.
+        The most obvious example is the `setTimeout()` function
+        )
 
     JavaScript provides an even more convenient syntax for managing `Promise`s:
     "the `async`/`await` syntax".

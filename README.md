@@ -55,3 +55,7 @@ the (Introduction to JavaScript Promises) blog post by Miguel Grinberg
 https://dev.to/johnjardincodes/increase-node-js-performance-with-libuv-thread-pool-5h10
 
 https://medium.com/softup-technologies/node-js-internals-not-everything-happens-on-the-thread-pool-a14d0a286efb
+
+---
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
