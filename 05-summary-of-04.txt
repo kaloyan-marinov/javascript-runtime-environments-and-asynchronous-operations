@@ -1,11 +1,22 @@
-An analogy: Imagine a robot is putting out a fire.
+An analogy:
+Imagine a fire has broken out
+and a fire brigade has to respond to that emergency.
 
-    - The _JavaScript program_ would be the instructions to the robot to put out a fire.
+    - The _generalized JavaScript program_ would be
+      the instructions to the firefighters to put out a fire.
 
-    - The _JavaScript Engine_ would be the robot,
-      which can understand the instructions and carry them out.
+    - The _JavaScript Engine_ would be
+      the firefighters who can understand the instructions and carry them out.
 
-    - The _JavaScript Runtime Environment_ would be the fire truck and the water gun.
+    - The _Web APIs_ would be
+      all the tools, which are needed and utilized by the firefighters
+      such as the fire truck and the water gun.
+
+    - The _Event Loop_ would be
+      the commanding firefighter,
+      who coordinates/organizes the entire fire brigade's response to the emergency.
+
+    - The _JavaScript Runtime Environment_ is the entire fire brigade.
 
 ---
 
