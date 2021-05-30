@@ -22,6 +22,13 @@ The JS files provide examples, each of which can be executed by issuing `node <f
 
     - _asynchronous_: of, used in, or being digital communication (as between computers) in which there is no timing requirement for transmission and in which the start of each character is individually signaled by the transmitting device
 
+# According to https://eloquentjavascript.net/11_async.html
+
+In a _synchronous_ programming model, things happen one at a time. When you call a function that performs a long-running action, it returns only when the action has finished... This stops your program for the time the action takes.
+
+An _asynchronous_ model allows multiple things to happen at the same time. When you start an action, your program continues to run. When the action finishes, the program is informed and gets access to the result (for example, the data read from disk).
+
+
 
 # Bibliography
 
@@ -61,3 +68,9 @@ https://medium.com/softup-technologies/node-js-internals-not-everything-happens-
 ---
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+# Advanced aspects of JavaScript Runtime Environments
+
+If you have worked through all of this repository's files, you should now be able to follow and understand more advanced aspects of JavaScript Runtime Environments such as the ones presented below.
+
+[TODO: add 2021/05/30/10_30/advanced-aspects-of-javascript-runtime-environments/]
