@@ -38,6 +38,8 @@ Oct 9, 2014
 
 https://developer.mozilla.org/en-US/docs/Web/API
 
+https://stackoverflow.com/questions/29027845/what-is-the-difference-between-javascript-engine-and-javascript-runtime-environm
+
 "JavaScript Promises - Mastering the asynchronous"
 
 the (Callback vs Promise vs Async-Await) article by GoFrendi Gunawan

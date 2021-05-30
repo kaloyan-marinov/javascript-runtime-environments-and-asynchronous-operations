@@ -1,3 +1,14 @@
+An analogy: Imagine a robot is putting out a fire.
+
+    - The _JavaScript program_ would be the instructions to the robot to put out a fire.
+
+    - The _JavaScript Engine_ would be the robot,
+      which can understand the instructions and carry them out.
+
+    - The _JavaScript Runtime Environment_ would be the fire truck and the water gun.
+
+---
+
 The _JavaScript Engine_ is composed of a _Call Stack_ and a _Heap_.
 
 The _JavaScript Engine_ executes a script from the top and works its way down,
